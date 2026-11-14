@@ -11,6 +11,16 @@ export const socialLinks: SocialLink[] = [
     label: "GitHub",
     url: "https://github.com/Yefrisaurio30",
   },
+  {
+    id: "instagram",
+    label: "Instagram",
+    url: "https://www.instagram.com/yefrisaurio_/"
+  },
+  {
+    id: "linkedln",
+    label: "Linkedln",
+    url: "www.linkedin.com/in/yefri-santiago-infante-galeano-21ba91338"
+  },
 ];
 
 export const hasEmail = (email: string) =>

@@ -8,7 +8,7 @@ import type { TechGroup } from "../types/portfolio";
 export const techGroups: TechGroup[] = [
   {
     category: "Lenguajes",
-    items: ["JavaScript", "TypeScript", "Dart", "Python"],
+    items: ["JavaScript", "TypeScript", "Dart", "Python", "Java"],
   },
   {
     category: "Frontend",
@@ -16,11 +16,11 @@ export const techGroups: TechGroup[] = [
   },
   {
     category: "Backend",
-    items: ["Node.js", "Django"],
+    items: ["Node.js", "Django", "Next.JS"],
   },
   {
     category: "Bases de datos",
-    items: ["PostgreSQL", "Supabase"],
+    items: ["PostgreSQL", "Supabase" , "MongoDB"],
   },
   {
     category: "Herramientas",

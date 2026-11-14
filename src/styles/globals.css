@@ -117,3 +117,249 @@ body {
   transform-style: preserve-3d;
   backface-visibility: hidden;
 }
+
+/* ============================================================
+   Animaciones globales — se evidencian en todo el proyecto
+   ============================================================ */
+
+@keyframes anim-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.15;
+  }
+}
+
+@keyframes anim-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes anim-sheen {
+  from {
+    transform: translateX(-130%);
+  }
+  to {
+    transform: translateX(340%);
+  }
+}
+
+@keyframes anim-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes anim-glow {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes anim-stroke-pulse {
+  0%,
+  100% {
+    -webkit-text-stroke-color: rgba(245, 245, 247, 0.85);
+  }
+  50% {
+    -webkit-text-stroke-color: rgba(41, 151, 255, 0.95);
+  }
+}
+
+/* Parpadeo (cursor de terminal, punto del logo) */
+.blink {
+  animation: anim-blink 1.6s ease-in-out infinite;
+}
+
+/* Flotación ambiental */
+.float-y {
+  animation: anim-float 4s ease-in-out infinite;
+}
+
+.float-y-slow {
+  animation: anim-float 6.5s ease-in-out infinite;
+}
+
+/* Resplandor latente */
+.glow-pulse {
+  animation: anim-glow 2.6s ease-in-out infinite;
+}
+
+/* Contorno del display que respira hacia el azul de acento */
+.text-shimmer {
+  animation: anim-stroke-pulse 3.2s ease-in-out infinite;
+}
+
+/* Subrayado que barre en hover (links de navbar, footer, etc.) */
+.link-sweep {
+  position: relative;
+}
+
+.link-sweep::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.link-sweep:hover::after,
+.link-sweep:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* Chip tecnológico: se eleva y se tiñe al hover.
+   Usa las propiedades CSS independientes translate/scale para no
+   chocar con el transform inline que setea GSAP en la revelación. */
+.chip {
+  transition:
+    translate 0.3s cubic-bezier(0.22, 0.61, 0.36, 1),
+    scale 0.3s cubic-bezier(0.22, 0.61, 0.36, 1),
+    border-color 0.3s,
+    color 0.3s,
+    background-color 0.3s,
+    box-shadow 0.3s;
+}
+
+.chip:hover {
+  translate: 0 -3px;
+  scale: 1.05;
+  border-color: var(--color-accent-bright);
+  box-shadow: 0 6px 18px rgba(41, 151, 255, 0.16);
+}
+
+/* Botón: elevación + brillo que barre de lado a lado */
+.btn-anim {
+  position: relative;
+  overflow: hidden;
+  transition:
+    translate 0.3s cubic-bezier(0.22, 0.61, 0.36, 1),
+    background-color 0.25s,
+    color 0.25s,
+    box-shadow 0.3s;
+}
+
+.btn-anim::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 40%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 100%
+  );
+  transform: translateX(-160%) skewX(-18deg);
+  transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  pointer-events: none;
+}
+
+.btn-anim:hover::after {
+  transform: translateX(320%) skewX(-18deg);
+}
+
+.btn-anim:hover {
+  translate: 0 -2px;
+  box-shadow: 0 10px 28px rgba(0, 113, 227, 0.18);
+}
+
+.btn-anim:active {
+  translate: 0 0;
+  scale: 0.97;
+}
+
+/* Elevación genérica para enlaces y botones pequeños */
+.lift {
+  transition:
+    translate 0.3s cubic-bezier(0.22, 0.61, 0.36, 1),
+    color 0.3s,
+    border-color 0.3s,
+    background-color 0.3s;
+}
+
+.lift:hover {
+  translate: 0 -3px;
+}
+
+.lift:active {
+  translate: 0 0;
+  scale: 0.97;
+}
+
+/* Fila interactiva: se desplaza y recibe luz lateral al hover */
+.row-hover {
+  transition:
+    translate 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+    background-color 0.35s;
+}
+
+.row-hover:hover {
+  translate: 6px 0;
+  background: linear-gradient(90deg, rgba(41, 151, 255, 0.07), transparent 55%);
+}
+
+/* Flecha que rebota al hover del contenedor */
+.arrow-bounce:hover svg,
+.arrow-bounce:focus-visible svg {
+  animation: anim-bounce 0.6s ease infinite;
+}
+
+/* Brillo que recorre la cinta marquee */
+.marquee-sheen {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.marquee-sheen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 34%;
+  background: linear-gradient(
+    105deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: anim-sheen 3.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blink,
+  .float-y,
+  .float-y-slow,
+  .glow-pulse,
+  .text-shimmer,
+  .marquee-sheen::before,
+  .arrow-bounce:hover svg,
+  .arrow-bounce:focus-visible svg {
+    animation: none;
+  }
+}

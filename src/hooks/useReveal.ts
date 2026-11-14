@@ -6,6 +6,8 @@ interface RevealOptions {
   y?: number;
   x?: number;
   scale?: number;
+  scaleX?: number;
+  origin?: string;
   stagger?: number;
   start?: string;
   duration?: number;
@@ -25,6 +27,8 @@ export function useReveal(
     y = 40,
     x = 0,
     scale = 1,
+    scaleX = 1,
+    origin,
     stagger = 0.08,
     start = "top 85%",
     duration = 0.8,
@@ -42,6 +46,8 @@ export function useReveal(
         y,
         x,
         scale,
+        scaleX,
+        transformOrigin: origin,
         opacity: 0,
         stagger,
         duration,
@@ -51,9 +57,12 @@ export function useReveal(
           start,
           toggleActions: "play none none reverse",
         },
+        // Al terminar deja el elemento limpio para que las
+        // animaciones CSS de hover operen sin interferencias.
+        onComplete: () => gsap.set(targets, { clearProps: "all" }),
       });
     }, root);
 
     return () => ctx.revert();
-  }, [ref, reduced, selector, y, x, scale, stagger, start, duration]);
+  }, [ref, reduced, selector, y, x, scale, scaleX, origin, stagger, start, duration]);
 }

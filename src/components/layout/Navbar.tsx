@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { gsap, ScrollTrigger } from "../../lib/gsap-setup";
 import { profile } from "../../data/profile";
 
@@ -21,6 +21,35 @@ export default function Navbar({ ready, act }: NavbarProps) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("inicio");
   const headerRef = useRef<HTMLElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  // Entrada animada del menú móvil: fade del overlay + links en cascada
+  useEffect(() => {
+    if (!open) return;
+    const menu = menuRef.current;
+    if (!menu) return;
+
+    const ctx = gsap.context(() => {
+      gsap.from(menu, { opacity: 0, duration: 0.35, ease: "power2.out" });
+      gsap.from(".mobile-link", {
+        x: -48,
+        opacity: 0,
+        duration: 0.55,
+        stagger: 0.06,
+        ease: "power3.out",
+        delay: 0.1,
+      });
+      gsap.from(".mobile-foot", {
+        y: 16,
+        opacity: 0,
+        duration: 0.5,
+        ease: "power3.out",
+        delay: 0.4,
+      });
+    }, menu);
+
+    return () => ctx.revert();
+  }, [open]);
 
   // Oculta el navbar al bajar y lo muestra al subir
   useEffect(() => {
@@ -83,9 +112,9 @@ export default function Navbar({ ready, act }: NavbarProps) {
         >
           <a
             href="#inicio"
-            className={`font-display text-sm font-semibold tracking-tight ${linkTheme}`}
+            className={`group font-display text-sm font-semibold tracking-tight ${linkTheme}`}
           >
-            YEFRI<span className="text-accent">.</span>
+            YEFRI<span className="text-accent blink inline-block">.</span>
           </a>
 
           <ul className="hidden items-center gap-7 md:flex">
@@ -94,7 +123,7 @@ export default function Navbar({ ready, act }: NavbarProps) {
                 <a
                   href={`#${link.id}`}
                   aria-current={active === link.id ? "true" : undefined}
-                  className={`font-mono text-[11px] uppercase tracking-[0.2em] transition-colors hover:text-accent ${linkTheme} ${active === link.id ? "text-accent" : ""}`}
+                  className={`link-sweep font-mono text-[11px] uppercase tracking-[0.2em] transition-colors hover:text-accent ${linkTheme} ${active === link.id ? "text-accent" : ""}`}
                 >
                   {link.label}
                 </a>
@@ -105,7 +134,7 @@ export default function Navbar({ ready, act }: NavbarProps) {
                 href={profile.github}
                 target="_blank"
                 rel="noreferrer noopener"
-                className={`font-mono text-[11px] uppercase tracking-[0.2em] transition-colors hover:text-accent ${linkTheme}`}
+                className={`link-sweep font-mono text-[11px] uppercase tracking-[0.2em] transition-colors hover:text-accent ${linkTheme}`}
               >
                 GitHub
               </a>
@@ -114,7 +143,7 @@ export default function Navbar({ ready, act }: NavbarProps) {
 
           <button
             type="button"
-            className={`p-1 md:hidden ${linkTheme}`}
+            className={`lift p-1 md:hidden ${linkTheme}`}
             onClick={() => setOpen(true)}
             aria-label="Abrir menú"
             aria-expanded={open}
@@ -125,28 +154,28 @@ export default function Navbar({ ready, act }: NavbarProps) {
       </header>
 
       {open && (
-        <div className="fixed inset-0 z-[90] flex flex-col bg-void text-bone">
+        <div ref={menuRef} className="fixed inset-0 z-[90] flex flex-col bg-void text-bone">
           <div className="flex items-center justify-between border-b border-bone/10 px-6 py-4">
             <span className="font-display text-sm font-semibold">
-              YEFRI<span className="text-accent">.</span>
+              YEFRI<span className="text-accent blink inline-block">.</span>
             </span>
             <button
               type="button"
               onClick={() => setOpen(false)}
               aria-label="Cerrar menú"
-              className="p-1"
+              className="p-1 transition-transform duration-300 hover:rotate-90 hover:text-accent"
             >
               <X size={22} aria-hidden="true" />
             </button>
           </div>
           <ul className="flex flex-1 flex-col justify-center gap-2 px-8">
             {LINKS.map((link, index) => (
-              <li key={link.id}>
+              <li key={link.id} className="mobile-link">
                 <a
                   href={`#${link.id}`}
                   onClick={() => setOpen(false)}
                   aria-current={active === link.id ? "true" : undefined}
-                  className="group flex items-baseline gap-4 py-3"
+                  className="group flex translate-x-0 items-baseline gap-4 py-3 transition-transform duration-300 hover:translate-x-2"
                 >
                   <span className="font-mono text-xs text-accent">
                     {String(index + 1).padStart(2, "0")}
@@ -156,11 +185,16 @@ export default function Navbar({ ready, act }: NavbarProps) {
                   >
                     {link.label}
                   </span>
+                  <ArrowUpRight
+                    size={22}
+                    aria-hidden="true"
+                    className="self-center text-accent opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100"
+                  />
                 </a>
               </li>
             ))}
           </ul>
-          <p className="px-8 pb-10 font-mono text-[11px] uppercase tracking-[0.25em] text-muted">
+          <p className="mobile-foot px-8 pb-10 font-mono text-[11px] uppercase tracking-[0.25em] text-muted">
             {profile.location}
           </p>
         </div>

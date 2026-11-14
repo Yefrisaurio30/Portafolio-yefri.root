@@ -28,7 +28,7 @@ export default function Button({
   ariaLabel,
   external = false,
 }: ButtonProps) {
-  const classes = `inline-flex items-center gap-2 px-6 py-3 font-mono text-xs uppercase tracking-widest transition-colors duration-200 ${VARIANTS[variant]} ${className}`;
+  const classes = `btn-anim inline-flex items-center gap-2 px-6 py-3 font-mono text-xs uppercase tracking-widest ${VARIANTS[variant]} ${className}`;
 
   if (href) {
     const externalProps = external

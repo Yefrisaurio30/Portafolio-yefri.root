@@ -77,7 +77,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             type="button"
             onClick={onClose}
             aria-label="Cerrar detalles del proyecto"
-            className="p-2 transition-colors hover:text-accent"
+            className="p-2 transition-all duration-300 hover:rotate-90 hover:text-accent"
           >
             <X size={20} aria-hidden="true" />
           </button>
@@ -88,7 +88,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           alt={`Vista previa de ${project.name}`}
           width={1200}
           height={750}
-          className="block aspect-[16/10] w-full border-b border-graphite/10 object-cover"
+          className="block aspect-[16/10] w-full border-b border-graphite/10 object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
         />
 
         <div className="space-y-6 px-6 py-8">
@@ -129,7 +129,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 {project.tech.map((item) => (
                   <li
                     key={item}
-                    className="border border-graphite/15 px-2.5 py-1 font-mono text-[11px] text-graphite/70"
+                    className="chip border border-graphite/15 px-2.5 py-1 font-mono text-[11px] text-graphite/70 hover:text-graphite"
                   >
                     {item}
                   </li>

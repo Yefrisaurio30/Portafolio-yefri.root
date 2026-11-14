@@ -41,17 +41,19 @@ export default function Preloader({ onDone }: PreloaderProps) {
       aria-hidden="true"
     >
       <p className="font-mono text-xs uppercase tracking-[0.35em] text-muted">
-        Yefri <span className="text-accent">//</span> Software Developer
+        Yefri <span className="glow-pulse text-accent">//</span> Software
+        Developer
       </p>
       <p className="mt-6 font-display text-6xl font-semibold tabular-nums">
         {pct}
         <span className="text-2xl text-muted">%</span>
       </p>
-      <div className="mt-6 h-px w-48 bg-bone/15">
+      <div className="relative mt-6 h-px w-48 overflow-hidden bg-bone/15">
         <div
           className="h-px bg-accent-bright transition-[width] duration-100 ease-linear"
           style={{ width: `${pct}%` }}
         />
+        <div className="marquee-sheen" />
       </div>
     </div>
   );

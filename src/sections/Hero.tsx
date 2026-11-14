@@ -101,7 +101,13 @@ export default function Hero({ ready }: HeroProps) {
             <span className="hero-line block">SOFTWARE</span>
           </span>
           <span className="block overflow-hidden">
-            <span className="hero-line text-outline block">DEVELOPER</span>
+            <span className="hero-line text-outline text-shimmer block">
+              DEVELOPER
+              <span
+                className="blink ml-[0.08em] inline-block h-[0.72em] w-[0.06em] translate-y-[0.06em] bg-accent-bright align-baseline"
+                aria-hidden="true"
+              />
+            </span>
           </span>
         </h1>
 
@@ -126,7 +132,7 @@ export default function Hero({ ready }: HeroProps) {
             href={profile.github}
             target="_blank"
             rel="noreferrer noopener"
-            className="inline-flex items-center gap-1.5 font-mono text-xs tracking-widest text-muted transition-colors hover:text-accent"
+            className="lift arrow-bounce inline-flex items-center gap-1.5 font-mono text-xs tracking-widest text-muted hover:text-accent"
           >
             @{profile.githubUsername}
             <ArrowUpRight size={14} aria-hidden="true" />

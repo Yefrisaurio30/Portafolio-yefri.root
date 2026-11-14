@@ -45,9 +45,15 @@ export default function About() {
           </p>
 
           <div className="about-reveal flex flex-wrap gap-x-8 gap-y-3 pt-4 font-mono text-[11px] tracking-[0.2em] text-muted uppercase">
-            <span>Frontend / Fullstack</span>
-            <span>Apps móviles</span>
-            <span>Integración de servicios</span>
+            <span className="lift float-y-slow hover:text-accent-bright" style={{ animationDelay: "0s" }}>
+              Frontend / Fullstack
+            </span>
+            <span className="lift float-y-slow hover:text-accent-bright" style={{ animationDelay: "0.8s" }}>
+              Apps móviles
+            </span>
+            <span className="lift float-y-slow hover:text-accent-bright" style={{ animationDelay: "1.6s" }}>
+              Integración de servicios
+            </span>
           </div>
         </div>
       </div>

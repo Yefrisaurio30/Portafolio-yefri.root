@@ -11,6 +11,10 @@ export default function TechStack() {
   const ref = useRef<HTMLElement>(null);
   useTunnelEntrance(ref);
   useReveal(ref, ".tech-group", { y: 56, stagger: 0.12, duration: 0.9 });
+  // Los chips entran uno a uno como fichas de dominó
+  useReveal(ref, ".tech-chip", { y: 14, stagger: 0.035, duration: 0.5 });
+  // Cada línea superior se dibuja de izquierda a derecha
+  useReveal(ref, ".tech-line", { y: 0, scaleX: 0, origin: "left center", stagger: 0.1, duration: 0.7 });
 
   return (
     <section
@@ -31,16 +35,20 @@ export default function TechStack() {
           {techGroups.map((group) => (
             <div
               key={group.category}
-              className="tech-group border-t border-bone/10 pt-5"
+              className="tech-group group pt-5"
             >
-              <h3 className="mb-4 font-mono text-xs tracking-[0.25em] text-accent-bright uppercase">
+              <div
+                className="tech-line h-px w-full origin-left bg-bone/10 transition-colors duration-500 group-hover:bg-accent-bright/60"
+                aria-hidden="true"
+              />
+              <h3 className="mb-4 mt-5 font-mono text-xs tracking-[0.25em] text-accent-bright uppercase transition-transform duration-300 group-hover:translate-x-1.5">
                 {group.category}
               </h3>
               <ul className="flex flex-wrap gap-2">
                 {group.items.map((item) => (
                   <li
                     key={item}
-                    className="border border-bone/15 px-3 py-1.5 font-mono text-xs text-bone/75"
+                    className="tech-chip chip cursor-default border border-bone/15 px-3 py-1.5 font-mono text-xs text-bone/75 hover:text-bone"
                   >
                     {item}
                   </li>

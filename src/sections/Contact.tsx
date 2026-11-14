@@ -111,7 +111,7 @@ export default function Contact() {
             href={profile.github}
             target="_blank"
             rel="noreferrer noopener"
-            className="inline-flex items-center gap-3 bg-bone px-6 py-3.5 font-mono text-xs tracking-widest text-void uppercase transition-colors hover:bg-white"
+            className="btn-anim inline-flex items-center gap-3 bg-bone px-6 py-3.5 font-mono text-xs tracking-widest text-void uppercase hover:bg-white"
           >
             <GithubIcon size={16} />
             @{profile.githubUsername}
@@ -126,7 +126,7 @@ export default function Contact() {
                 href={link.url}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="inline-flex items-center gap-2 border border-bone/25 px-6 py-3.5 font-mono text-xs tracking-widest text-bone uppercase transition-colors hover:border-accent-bright hover:text-accent-bright"
+                className="btn-anim inline-flex items-center gap-2 border border-bone/25 px-6 py-3.5 font-mono text-xs tracking-widest text-bone uppercase hover:border-accent-bright hover:text-accent-bright"
               >
                 {link.label}
               </a>
@@ -135,7 +135,7 @@ export default function Contact() {
           {emailAvailable && (
             <a
               href={`mailto:${profile.email}`}
-              className="inline-flex items-center gap-2 border border-bone/25 px-6 py-3.5 font-mono text-xs tracking-widest text-bone uppercase transition-colors hover:border-accent-bright hover:text-accent-bright"
+              className="btn-anim inline-flex items-center gap-2 border border-bone/25 px-6 py-3.5 font-mono text-xs tracking-widest text-bone uppercase hover:border-accent-bright hover:text-accent-bright"
             >
               Escríbeme
             </a>
@@ -143,7 +143,7 @@ export default function Contact() {
         </div>
 
         <p className="contact-reveal mt-12 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.25em] text-muted uppercase">
-          <MapPin size={13} aria-hidden="true" />
+          <MapPin size={13} aria-hidden="true" className="float-y" />
           {profile.location}
         </p>
       </div>

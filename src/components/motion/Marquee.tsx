@@ -46,7 +46,7 @@ export default function Marquee() {
 
   return (
     <div
-      className="overflow-hidden border-y border-black/10 bg-accent py-3 text-white"
+      className="relative overflow-hidden border-y border-black/10 bg-accent py-3 text-white"
       aria-hidden="true"
     >
       <div ref={trackRef} className="flex w-max whitespace-nowrap">
@@ -63,6 +63,7 @@ export default function Marquee() {
           </div>
         ))}
       </div>
+      <div className="marquee-sheen" />
     </div>
   );
 }

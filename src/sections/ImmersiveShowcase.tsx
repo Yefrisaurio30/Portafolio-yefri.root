@@ -230,7 +230,7 @@ export default function ImmersiveShowcase() {
             width={1200}
             height={750}
             loading="lazy"
-            className="block aspect-[16/10] w-full object-cover"
+            className="block aspect-[16/10] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
           />
           <span className="absolute top-3 left-3 bg-void/85 px-2 py-1 font-mono text-[11px] text-bone">
             {String(index + 1).padStart(2, "0")}
@@ -241,7 +241,7 @@ export default function ImmersiveShowcase() {
           {/* Overlay de hover */}
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-void/0 opacity-0 transition-[background-color,opacity] duration-300 group-hover:bg-void/40 group-hover:opacity-100">
             <span className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.25em] text-bone uppercase">
-              <Eye size={15} aria-hidden="true" />
+              <Eye size={15} aria-hidden="true" className="glow-pulse" />
               Ver proyecto
             </span>
           </div>
@@ -260,7 +260,7 @@ export default function ImmersiveShowcase() {
             {project.tech.slice(0, 3).map((item) => (
               <li
                 key={item}
-                className="border border-graphite/15 px-2 py-0.5 font-mono text-[10px] text-graphite/70"
+                className="chip border border-graphite/15 px-2 py-0.5 font-mono text-[10px] text-graphite/70 hover:text-graphite"
               >
                 {item}
               </li>

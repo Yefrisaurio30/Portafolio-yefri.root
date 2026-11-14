@@ -52,18 +52,18 @@ export default function Experience() {
           {ENTRIES.map((entry, index) => (
             <li
               key={entry.title}
-              className="exp-row grid gap-2 border-t border-bone/10 py-7 sm:grid-cols-[140px_1fr_auto] sm:items-baseline sm:gap-8"
+              className="exp-row row-hover group grid gap-2 border-t border-bone/10 py-7 sm:grid-cols-[140px_1fr_auto] sm:items-baseline sm:gap-8"
             >
-              <span className="font-mono text-xs tracking-[0.2em] text-accent-bright uppercase">
+              <span className="font-mono text-xs tracking-[0.2em] text-accent-bright uppercase transition-colors duration-300">
                 {entry.period}
               </span>
               <div>
-                <h3 className="font-display text-xl font-semibold tracking-tight">
+                <h3 className="font-display text-xl font-semibold tracking-tight transition-colors duration-300 group-hover:text-accent-bright">
                   {entry.title}
                 </h3>
-                <p className="mt-1 text-sm text-bone/70">{entry.detail}</p>
+                <p className="mt-1 text-sm text-bone/70 transition-colors duration-300 group-hover:text-bone/90">{entry.detail}</p>
               </div>
-              <span className="hidden font-mono text-xs text-bone/30 sm:block">
+              <span className="hidden font-mono text-xs text-bone/30 transition-colors duration-300 group-hover:text-accent-bright sm:block">
                 {String(index + 1).padStart(2, "0")}
               </span>
             </li>

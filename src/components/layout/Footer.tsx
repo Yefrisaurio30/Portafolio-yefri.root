@@ -1,6 +1,4 @@
-import { ArrowUp } from "lucide-react";
 import { SocialIcon } from "../ui/icons";
-import { gsap } from "../../lib/gsap-setup";
 import { profile } from "../../data/profile";
 import { socialLinks } from "../../data/social-links";
 
@@ -8,25 +6,6 @@ const YEAR = new Date().getFullYear();
 
 export default function Footer() {
   const year = YEAR;
-
-  const toTop = () => {
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) {
-      window.scrollTo(0, 0);
-      return;
-    }
-    // ScrollToPlugin: desplazamiento fiable incluso con secciones
-    // pineadas por ScrollTrigger. autoKill en false evita que un
-    // toque de rueda/pantalla durante la animación la cancele.
-    gsap.to(window, {
-      scrollTo: { y: 0, autoKill: false },
-      duration: 1.2,
-      ease: "power3.inOut",
-      overwrite: "auto",
-      // Red de seguridad: garantiza llegar exactamente al tope.
-      onComplete: () => window.scrollTo(0, 0),
-    });
-  };
 
   return (
     <footer className="border-t border-bone/10 bg-void text-bone">
@@ -54,18 +33,7 @@ export default function Footer() {
               </a>
             </li>
           ))}
-          <li>
-
-          </li>
         </ul>
-
-        <button
-          type="button"
-          onClick={toTop}
-          className="lift arrow-bounce inline-flex items-center gap-2 border border-bone/20 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.2em] text-bone/70 hover:border-accent hover:text-accent"
-        >
-          Volver arriba <ArrowUp size={25} aria-hidden="true" />
-        </button>
       </div>
     </footer>
   );

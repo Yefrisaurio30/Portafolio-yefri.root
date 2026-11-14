@@ -17,9 +17,9 @@ export const socialLinks: SocialLink[] = [
     url: "https://www.instagram.com/yefrisaurio_/"
   },
   {
-    id: "linkedln",
-    label: "Linkedln",
-    url: "www.linkedin.com/in/yefri-santiago-infante-galeano-21ba91338"
+    id: "linkedin",
+    label: "LinkedIn",
+    url: "https://www.linkedin.com/in/yefri-santiago-infante-galeano-21ba91338",
   },
 ];
 

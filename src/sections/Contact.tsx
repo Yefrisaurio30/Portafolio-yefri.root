@@ -1,6 +1,6 @@
 ﻿import { useEffect, useRef } from "react";
 import { ArrowUpRight, MapPin } from "lucide-react";
-import { GithubIcon } from "../components/ui/icons";
+import { GithubIcon, SocialIcon } from "../components/ui/icons";
 import { gsap } from "../lib/gsap-setup";
 import { sceneState } from "../lib/scene-state";
 import { useReducedMotion } from "../hooks/useReducedMotion";
@@ -128,6 +128,7 @@ export default function Contact() {
                 rel="noreferrer noopener"
                 className="btn-anim inline-flex items-center gap-2 border border-bone/25 px-6 py-3.5 font-mono text-xs tracking-widest text-bone uppercase hover:border-accent-bright hover:text-accent-bright"
               >
+                <SocialIcon id={link.id} size={14} />
                 {link.label}
               </a>
             ))}

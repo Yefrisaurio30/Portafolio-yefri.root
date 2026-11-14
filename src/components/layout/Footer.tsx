@@ -1,5 +1,6 @@
 import { ArrowUp } from "lucide-react";
-import { GithubIcon } from "../ui/icons";
+import { SocialIcon } from "../ui/icons";
+import { gsap } from "../../lib/gsap-setup";
 import { profile } from "../../data/profile";
 import { socialLinks } from "../../data/social-links";
 
@@ -10,7 +11,18 @@ export default function Footer() {
 
   const toTop = () => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
+    if (reduced) {
+      window.scrollTo(0, 0);
+      return;
+    }
+    // ScrollToPlugin: desplazamiento fiable incluso con secciones
+    // pineadas por ScrollTrigger (window.scrollTo smooth puede fallar).
+    gsap.to(window, {
+      scrollTo: 0,
+      duration: 1.4,
+      ease: "power3.inOut",
+      overwrite: "auto",
+    });
   };
 
   return (
@@ -34,7 +46,7 @@ export default function Footer() {
                 rel="noreferrer noopener"
                 className="link-sweep lift arrow-bounce inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-bone/70 hover:text-accent"
               >
-                <GithubIcon size={14} />
+                <SocialIcon id={link.id} size={14} />
                 {link.label}
               </a>
             </li>

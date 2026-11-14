@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" role="img" aria-label="Vista previa de Tecnovo">
+  <defs>
+    <pattern id="g1" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="#E3E3E6" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="750" fill="#F5F5F7"/>
+  <rect width="1200" height="750" fill="url(#g1)"/>
+  <line x1="90" y1="150" x2="1110" y2="150" stroke="#D6D6DB"/>
+  <text x="90" y="128" font-family="ui-monospace, monospace" font-size="26" fill="#86868B">TECNOVO — SOFTWARE EMPRESARIAL</text>
+  <text x="90" y="500" font-family="Arial, sans-serif" font-weight="700" font-size="170" fill="#1D1D1F">TE—NOVO</text>
+  <line x1="90" y1="560" x2="480" y2="560" stroke="#0071E3" stroke-width="6"/>
+  <text x="90" y="640" font-family="ui-monospace, monospace" font-size="30" fill="#86868B">GESTIÓN · PAGOS · SUPABASE</text>
+</svg>

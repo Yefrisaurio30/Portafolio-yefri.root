@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" role="img" aria-label="Vista previa de Plataforma Social">
+  <defs>
+    <pattern id="gps" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="#1C1C22" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="750" fill="#0D0D10"/>
+  <rect width="1200" height="750" fill="url(#gps)"/>
+  <line x1="90" y1="150" x2="1110" y2="150" stroke="#2B2B33"/>
+  <text x="90" y="128" font-family="ui-monospace, monospace" font-size="26" fill="#86868B">PLATAFORMA SOCIAL — DJANGO + SUPABASE</text>
+  <text x="90" y="450" font-family="Arial, sans-serif" font-weight="700" font-size="130" fill="#F5F5F7">PLATAFORMA</text>
+  <text x="90" y="580" font-family="Arial, sans-serif" font-weight="700" font-size="130" fill="#F5F5F7">SOCIAL</text>
+  <line x1="90" y1="480" x2="480" y2="480" stroke="#2997FF" stroke-width="6"/>
+  <text x="90" y="690" font-family="ui-monospace, monospace" font-size="30" fill="#86868B">USUARIOS · MODERACIÓN</text>
+</svg>

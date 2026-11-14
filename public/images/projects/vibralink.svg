@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" role="img" aria-label="Vista previa de VibraLink">
+  <defs>
+    <pattern id="g2" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="#1C1C22" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="750" fill="#0D0D10"/>
+  <rect width="1200" height="750" fill="url(#g2)"/>
+  <line x1="90" y1="150" x2="1110" y2="150" stroke="#2B2B33"/>
+  <text x="90" y="128" font-family="ui-monospace, monospace" font-size="26" fill="#86868B">VIBRALINK — BIENESTAR JUVENIL</text>
+  <text x="90" y="500" font-family="Arial, sans-serif" font-weight="700" font-size="170" fill="#F5F5F7">VIBRA—</text>
+  <text x="90" y="640" font-family="Arial, sans-serif" font-weight="700" font-size="170" fill="#F5F5F7">LINK</text>
+  <line x1="90" y1="410" x2="480" y2="410" stroke="#2997FF" stroke-width="6"/>
+</svg>

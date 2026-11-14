@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750" role="img" aria-label="Vista previa de E-commerce Móvil">
+  <defs>
+    <pattern id="g5" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="#E3E3E6" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="750" fill="#F5F5F7"/>
+  <rect width="1200" height="750" fill="url(#g5)"/>
+  <line x1="90" y1="150" x2="1110" y2="150" stroke="#D6D6DB"/>
+  <text x="90" y="128" font-family="ui-monospace, monospace" font-size="26" fill="#86868B">E-COMMERCE MÓVIL — PROYECTO ACADÉMICO</text>
+  <text x="90" y="480" font-family="Arial, sans-serif" font-weight="700" font-size="140" fill="#1D1D1F">E-COM—</text>
+  <text x="90" y="620" font-family="Arial, sans-serif" font-weight="700" font-size="140" fill="#1D1D1F">MERCE</text>
+  <line x1="90" y1="510" x2="480" y2="510" stroke="#0071E3" stroke-width="6"/>
+  <text x="90" y="700" font-family="ui-monospace, monospace" font-size="30" fill="#86868B">FLUTTER · DART · API REST</text>
+</svg>

@@ -16,12 +16,15 @@ export default function Footer() {
       return;
     }
     // ScrollToPlugin: desplazamiento fiable incluso con secciones
-    // pineadas por ScrollTrigger (window.scrollTo smooth puede fallar).
+    // pineadas por ScrollTrigger. autoKill en false evita que un
+    // toque de rueda/pantalla durante la animación la cancele.
     gsap.to(window, {
-      scrollTo: 0,
-      duration: 1.4,
+      scrollTo: { y: 0, autoKill: false },
+      duration: 1.2,
       ease: "power3.inOut",
       overwrite: "auto",
+      // Red de seguridad: garantiza llegar exactamente al tope.
+      onComplete: () => window.scrollTo(0, 0),
     });
   };
 
